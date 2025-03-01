@@ -1,9 +1,17 @@
 
 let socket;
 
+// Simple UUID generator (no crypto API used)
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
 // WebSocket connection function
 function connectWebSocket() {
-    socket = new WebSocket('ws://192.168.6.126:81');  // Replace with your Pico W's IP
+    socket = new WebSocket('ws://your_pico_w_ip:81');  // Replace with your Pico W's IP
 
     socket.onopen = () => {
         console.log('Connected to Raspberry Pi Pico W');
