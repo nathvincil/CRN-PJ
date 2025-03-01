@@ -1,43 +1,34 @@
+let socket;
 
-        let socket;
+// Function to connect to the Raspberry Pi Pico W via WebSocket
+function connectWebSocket() {
+    socket = new WebSocket('ws:192.168.6.126:80');  // Replace with the actual IP of your Pico W
 
-        // Simple UUID generator (no crypto API used)
-        function generateUUID() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
+    socket.onopen = () => {
+        console.log('Connected to Raspberry Pi Pico W');
+    };
 
-        // WebSocket connection function
-        function connectWebSocket() {
-            socket = new WebSocket('wss:192.168.6.126:80');  // Replace with your Pico W's IP
+    socket.onmessage = (event) => {
+        console.log('Message from Pico W: ' + event.data);
+    };
 
-            socket.onopen = () => {
-                console.log('Connected to Raspberry Pi Pico W');
-            };
+    socket.onerror = (error) => {
+        console.log('WebSocket error: ' + error);
+    };
+}
 
-            socket.onmessage = (event) => {
-                console.log('Message from Pico W: ' + event.data);
-            };
+// Function to turn the LED on
+function turnLEDOn() {
+    console.log("Turning LED On");
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send('LED_ON');  // Send command to Pico W to turn LED on
+    }
+}
 
-            socket.onerror = (error) => {
-                console.log('WebSocket error: ' + error);
-            };
-        }
-
-        // Function to turn LED on
-        function turnLEDOn() {
-            console.log("Turning LED On");
-            if (socket && socket.readyState === WebSocket.OPEN) {
-                socket.send('LED_ON');
-            }
-        }
-
-        // Function to turn LED off
-        function turnLEDOff() {
-            console.log("Turning LED Off");
-            if (socket && socket.readyState === WebSocket.OPEN) {
-                socket.send('LED_OFF');
-            }
-        }
+// Function to turn the LED off
+function turnLEDOff() {
+    console.log("Turning LED Off");
+    if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send('LED_OFF');  // Send command to Pico W to turn LED off
+    }
+}

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control LED</title>
-    <script src="script.js" defer></script>  <!-- Link to the external JS file -->
+    <!-- Linking the external JavaScript file -->
+    <script src="script.js" defer></script>
 </head>
 <body onload="connectWebSocket()">
     <h1>Control LED on Raspberry Pi Pico W</h1>
+    <!-- Buttons to turn LED on or off -->
     <button onclick="turnLEDOn()">Turn LED On</button>
     <button onclick="turnLEDOff()">Turn LED Off</button>
 </body>
