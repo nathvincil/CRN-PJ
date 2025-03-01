@@ -1,10 +1,10 @@
 
 let socket;
 
-// Connect to the WebSocket server running on the Raspberry Pi Pico W
+// WebSocket connection function
 function connectWebSocket() {
-    socket = new WebSocket('ws://192.168.6.126:80');  // Change this IP to your Pico W's IP
-    
+    socket = new WebSocket('ws://192.168.6.126:80');  // Replace with your Pico W's IP
+
     socket.onopen = () => {
         console.log('Connected to Raspberry Pi Pico W');
     };
@@ -18,15 +18,17 @@ function connectWebSocket() {
     };
 }
 
-// Send message to turn LED on
+// Function to turn LED on
 function turnLEDOn() {
+    console.log("Turning LED On");
     if (socket && socket.readyState === WebSocket.OPEN) {
         socket.send('LED_ON');
     }
 }
 
-// Send message to turn LED off
+// Function to turn LED off
 function turnLEDOff() {
+    console.log("Turning LED Off");
     if (socket && socket.readyState === WebSocket.OPEN) {
         socket.send('LED_OFF');
     }
