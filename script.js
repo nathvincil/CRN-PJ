@@ -3,7 +3,7 @@ let socket;
 
 // Connect to the WebSocket server running on the Raspberry Pi Pico W
 function connectWebSocket() {
-    socket = new WebSocket('ws://your_pico_w_ip:81');  // Change this IP to your Pico W's IP
+    socket = new WebSocket('ws://192.168.6.126:81');  // Change this IP to your Pico W's IP
     
     socket.onopen = () => {
         console.log('Connected to Raspberry Pi Pico W');
