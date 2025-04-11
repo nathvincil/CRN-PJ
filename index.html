@@ -1,16 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control LED</title>
-    <!-- Linking the external JavaScript file -->
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRN&PJ Group | Certified Solutions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .badges {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .badges img {
+      width: 150px;
+    }
+    footer {
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
-<body onload="connectWebSocket()">
-    <h1>Control LED on Raspberry Pi Pico W</h1>
-    <!-- Buttons to turn LED on or off -->
-    <button onclick="turnLEDOn()">Turn LED On</button>
-    <button onclick="turnLEDOff()">Turn LED Off</button>
+<body>
+  <header>
+    <h1>CRN&PJ Group</h1>
+    <p>Infrastructure Certifiée. Vision Sécurisée. Solutions Évolutives.</p>
+  </header>
+
+  <nav>
+    <a href="#certifications">Certifications</a>
+    <a href="#vision">Vision</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="certifications">
+    <h2>Nos Certifications</h2>
+    <div class="badges">
+      <img src="certified_product.png" alt="Certified Product" />
+      <img src="redundancy_certified.png" alt="Redundancy Certified" />
+      <img src="security_certified.png" alt="Security Certified" />
+      <img src="vision_certified.png" alt="Vision Certified" />
+    </div>
+    <p>Chaque badge symbolise notre engagement envers la qualité, la résilience, la sécurité et l'innovation dans nos projets d'infrastructure.</p>
+  </section>
+
+  <section id="vision">
+    <h2>Notre Vision</h2>
+    <p>
+      Chez CRN&PJ Group, nous conçevons des infrastructures évolutives (évolutives), hautement redondantes et sécurisées pour les entreprises modernes.
+      Nos solutions intègrent des technologies de pointe comme la fibre optique, le Cat6 blindé, et des systèmes de sauvegarde intelligents.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Nos Services</h2>
+    <ul>
+      <li>Conception de réseau professionnel</li>
+      <li>Installation et déploiement d'infrastructure</li>
+      <li>Sécurité et tolérance aux pannes</li>
+      <li>Support et formation</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contactez-Nous</h2>
+    <p>Pour toute demande ou devis, contactez-nous à <strong>contact@crnpjgroup.com</strong></p>
+  </section>
+
+  <footer>
+    &copy; 2025 CRN&PJ Group. Tous droits réservés.
+  </footer>
 </body>
 </html>
